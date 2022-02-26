@@ -1,5 +1,0 @@
-spread
-cooldown
-recoil
-sounds
-bullet collision
