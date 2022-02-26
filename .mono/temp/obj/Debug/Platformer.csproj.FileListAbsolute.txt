@@ -1,0 +1,16 @@
+/Users/dg/Dev/Game/Platformer/.mono/temp/bin/Debug/Platformer.dll
+/Users/dg/Dev/Game/Platformer/.mono/temp/bin/Debug/Platformer.pdb
+/Users/dg/Dev/Game/Platformer/.mono/temp/obj/Debug/Platformer.csprojAssemblyReference.cache
+/Users/dg/Dev/Game/Platformer/.mono/temp/obj/Debug/Platformer.AssemblyInfoInputs.cache
+/Users/dg/Dev/Game/Platformer/.mono/temp/obj/Debug/Platformer.AssemblyInfo.cs
+/Users/dg/Dev/Game/Platformer/.mono/temp/obj/Debug/Platformer.csproj.CoreCompileInputs.cache
+/Users/dg/Dev/Game/Platformer/.mono/temp/obj/Debug/Platformer.dll
+/Users/dg/Dev/Game/Platformer/.mono/temp/obj/Debug/Platformer.pdb
+/Users/dg/Archive/Game/Platformer/.mono/temp/bin/Debug/Platformer.dll
+/Users/dg/Archive/Game/Platformer/.mono/temp/bin/Debug/Platformer.pdb
+/Users/dg/Archive/Game/Platformer/.mono/temp/obj/Debug/Platformer.csprojAssemblyReference.cache
+/Users/dg/Archive/Game/Platformer/.mono/temp/obj/Debug/Platformer.AssemblyInfoInputs.cache
+/Users/dg/Archive/Game/Platformer/.mono/temp/obj/Debug/Platformer.AssemblyInfo.cs
+/Users/dg/Archive/Game/Platformer/.mono/temp/obj/Debug/Platformer.csproj.CoreCompileInputs.cache
+/Users/dg/Archive/Game/Platformer/.mono/temp/obj/Debug/Platformer.dll
+/Users/dg/Archive/Game/Platformer/.mono/temp/obj/Debug/Platformer.pdb

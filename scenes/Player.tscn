@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://textures/player.png" type="Texture" id=1]
+[ext_resource path="res://scripts/PlayerController.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Gun.gd" type="Script" id=3]
+[ext_resource path="res://textures/guns.png" type="Texture" id=4]
+[ext_resource path="res://textures/particles.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2, 4 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 80, 32 )
+z_index = 999
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Gun" type="Sprite" parent="."]
+position = Vector2( -1, 0 )
+z_index = 999
+texture = ExtResource( 4 )
+offset = Vector2( 2.5, 0.5 )
+hframes = 2
+vframes = 3
+frame = 3
+script = ExtResource( 3 )
+type = "pistol"
+
+[node name="ShotPoint" type="Position2D" parent="Gun"]
+position = Vector2( 6.5, 0.5 )
+__meta__ = {
+"_gizmo_extents_": 1.0
+}
+
+[node name="Fire" type="Sprite" parent="Gun"]
+visible = false
+position = Vector2( 7, 0 )
+texture = ExtResource( 5 )
+vframes = 2
+frame = 1

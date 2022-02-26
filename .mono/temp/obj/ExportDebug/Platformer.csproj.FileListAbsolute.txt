@@ -1,0 +1,8 @@
+/Users/dg/Dev/Game/Platformer/.mono/temp/bin/ExportDebug/Platformer.dll
+/Users/dg/Dev/Game/Platformer/.mono/temp/bin/ExportDebug/Platformer.pdb
+/Users/dg/Dev/Game/Platformer/.mono/temp/obj/ExportDebug/Platformer.csprojAssemblyReference.cache
+/Users/dg/Dev/Game/Platformer/.mono/temp/obj/ExportDebug/Platformer.AssemblyInfoInputs.cache
+/Users/dg/Dev/Game/Platformer/.mono/temp/obj/ExportDebug/Platformer.AssemblyInfo.cs
+/Users/dg/Dev/Game/Platformer/.mono/temp/obj/ExportDebug/Platformer.csproj.CoreCompileInputs.cache
+/Users/dg/Dev/Game/Platformer/.mono/temp/obj/ExportDebug/Platformer.dll
+/Users/dg/Dev/Game/Platformer/.mono/temp/obj/ExportDebug/Platformer.pdb

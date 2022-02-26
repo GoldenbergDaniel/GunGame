@@ -1,0 +1,171 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://textures/square.png" type="Texture" id=2]
+[ext_resource path="res://scripts/GameManager.gd" type="Script" id=3]
+[ext_resource path="res://textures/enemies.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 1, 1 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 2, 4 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 3, 4 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 3.5, 3.5 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[node name="World" type="Node2D"]
+
+[node name="Temp" type="Node2D" parent="."]
+position = Vector2( -100, -100 )
+
+[node name="Enemy1" type="KinematicBody2D" parent="Temp"]
+position = Vector2( 37, 50 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Temp/Enemy1"]
+scale = Vector2( 2, 3 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Temp/Enemy1"]
+texture = ExtResource( 4 )
+hframes = 3
+vframes = 3
+
+[node name="Enemy2" type="KinematicBody2D" parent="Temp"]
+position = Vector2( 29, 50 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Temp/Enemy2"]
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Temp/Enemy2"]
+texture = ExtResource( 4 )
+hframes = 3
+vframes = 3
+frame = 1
+
+[node name="Enemy3" type="KinematicBody2D" parent="Temp"]
+position = Vector2( 21, 50 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Temp/Enemy3"]
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Temp/Enemy3"]
+texture = ExtResource( 4 )
+hframes = 3
+vframes = 3
+frame = 2
+
+[node name="Enemy4" type="KinematicBody2D" parent="Temp"]
+position = Vector2( 12, 50 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Temp/Enemy4"]
+position = Vector2( 0.5, 0.5 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Temp/Enemy4"]
+texture = ExtResource( 4 )
+hframes = 3
+vframes = 3
+frame = 3
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="Game" type="Node" parent="Managers"]
+script = ExtResource( 3 )
+
+[node name="Map" type="Node" parent="."]
+
+[node name="FG" type="Node" parent="Map"]
+
+[node name="Ground" type="StaticBody2D" parent="Map/FG"]
+position = Vector2( 80, 74 )
+scale = Vector2( 25, 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Map/FG/Ground"]
+modulate = Color( 0, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="Collider" type="CollisionShape2D" parent="Map/FG/Ground"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Platform1" type="StaticBody2D" parent="Map/FG"]
+position = Vector2( 148, 55 )
+scale = Vector2( 8, 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Map/FG/Platform1"]
+modulate = Color( 0, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="Collider" type="CollisionShape2D" parent="Map/FG/Platform1"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Platform2" type="StaticBody2D" parent="Map/FG"]
+position = Vector2( 12, 55 )
+scale = Vector2( 8, 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Map/FG/Platform2"]
+modulate = Color( 0, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="Collider" type="CollisionShape2D" parent="Map/FG/Platform2"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="BG" type="Node" parent="Map"]
+
+[node name="Sprite" type="Sprite" parent="Map/BG"]
+modulate = Color( 0.137255, 0.137255, 0.137255, 1 )
+position = Vector2( 80, 45 )
+scale = Vector2( 25, 12 )
+z_index = -999
+texture = ExtResource( 2 )
+
+[node name="ResetField" type="Area2D" parent="Map"]
+position = Vector2( 80, 120 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/ResetField"]
+scale = Vector2( 20, 1 )
+shape = SubResource( 2 )
+
+[node name="SpawnPoint" type="Node2D" parent="Map"]
+position = Vector2( 80, 40 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 55, 40 )
+z_index = 99
+air_resistance = 8.0
+max_jump_count = 2
+spawn_point_ref = NodePath("../Map/SpawnPoint")
+
+[connection signal="body_shape_entered" from="Map/ResetField" to="Player" method="_on_ResetField_body_shape_entered"]
