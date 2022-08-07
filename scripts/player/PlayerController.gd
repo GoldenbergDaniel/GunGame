@@ -5,27 +5,35 @@ export var movement_speed: float = 60
 export var jump_force: float = 120
 export var acceleration: float = 60
 export var friction: float = 24
-export var air_resistance: float = 12
+export var air_resistance: float = 8
 export var max_jump_count: int = 1
 
-var motion: Vector2
+export var gun_type: String
+
 var input: Vector2
+var motion: Vector2
 
 var jump_count: int
-var grounded_remember_time: float
 var jump_remember_time: float
+var grounded_remember_time: float
 var was_on_ground: bool
 
 var spawn_point: Node2D
 export var spawn_point_ref: NodePath
 
+var state_machine: PlayerStateMachine
+
 
 func _ready():
+	state_machine = get_node("PlayerStateMachine")
 	spawn_point = get_node(spawn_point_ref)
 
 
 func _process(_delta):
-	$Sprite.flip_h = mouse_pos_left()
+	if mouse_pos_left():
+		get_node("Pivot").scale.x = -1
+	else:
+		get_node("Pivot").scale.x = 1
 
 
 func _physics_process(delta):
@@ -66,10 +74,10 @@ func _physics_process(delta):
 	motion = move_and_slide(motion, Vector2.UP)
 
 
-func _on_ResetField_body_shape_entered(_body_id: int, _body: KinematicBody2D, _body_shape: CollisionShape2D, _local_shape: CollisionShape2D):
-	position = spawn_point.position
+func _on_ResetField_body_shape_entered(_body_id: RID, _body: KinematicBody2D, _body_shape: CollisionShape2D, _local_shape: CollisionShape2D):
+	self.position = spawn_point.position
 	motion = Vector2.ZERO
 
 
 func mouse_pos_left() -> bool:
-	return get_global_mouse_position().x < position.x
+	return get_global_mouse_position().x < self.position.x

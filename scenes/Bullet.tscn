@@ -1,17 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://textures/bullets.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Bullet.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1.05, 0.55 )
+extents = Vector2( 1, 1 )
 
-[node name="Bullet" type="Area2D"]
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[node name="Bullet" type="Area2D" groups=["Projectile"]]
 position = Vector2( -0.0078125, 0.0078125 )
+collision_layer = 8
+collision_mask = 7
 script = ExtResource( 2 )
-speed = 150.0
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
 position = Vector2( 0, 0.5 )
 texture = ExtResource( 1 )
 hframes = 2
@@ -20,4 +25,20 @@ frame = 2
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 visible = false
+scale = Vector2( 1, 0.5 )
 shape = SubResource( 1 )
+
+[node name="Trail" type="Line2D" parent="."]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+position = Vector2( -1.99219, -0.0078125 )
+points = PoolVector2Array( -2, 0, 1, 0 )
+width = 1.0
+width_curve = SubResource( 2 )
+default_color = Color( 1.5, 1.5, 1.5, 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="body_shape_entered" from="." to="." method="_on_Bullet_body_shape_entered"]

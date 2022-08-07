@@ -3,39 +3,53 @@ extends Sprite
 var data: GunData
 var rng = RandomNumberGenerator.new()
 
-export var type: String
+var shot_timer: float
+var has_shot: bool
 
 var BULLET: Resource = preload("res://scenes/Bullet.tscn")
 
 
 func _ready():
-	data = load("res://data/gun/" + type + ".tres")
-	frame = data.frame
+	data = load("res://data/gun/" + get_node("/root/World/Player").gun_type + ".tres")
+	self.frame = data.frame
+	shot_timer = data.fire_rate
 
-	position = data.pivot_point_pos
+	self.offset = data.sprite_pivot_pos
+	self.position = data.gun_point_pos
 	$ShotPoint.position = data.shot_point_pos
 
 
-func _process(_delta):
+func _process(delta):
+	if shot_timer <= data.fire_rate:
+		shot_timer += delta
+
+	if shot_timer > data.fire_rate:
+		shot_timer = data.fire_rate
+
 	if mouse_pos_left():
-		position.x = -(data.pivot_point_pos.x)
+		self.position.x = -(data.gun_point_pos.x)
 		$ShotPoint.position.y = -(data.shot_point_pos.y)
 	else:
-		position.x = data.pivot_point_pos.x
+		self.position.x = data.gun_point_pos.x
 		$ShotPoint.position.y = data.shot_point_pos.y
 
-	if Input.is_action_just_pressed("ui_left_click"):
+	if can_fire():
 		var bullet = BULLET.instance()
-		get_parent().get_parent().add_child(bullet)
 		bullet.position = $ShotPoint.global_position
-		bullet.rotation = $ShotPoint.global_rotation + (rng.randf_range(-1, 1) * data.spread) * (PI/180)
-		# $Fire.visible = true
-	# else: 
-	# 	$Fire.visible = false
+		bullet.rotation = $ShotPoint.global_rotation + (rng.randfn() * data.spread) * (PI/180)
+		bullet.speed = data.speed
+		bullet.damage = data.damage
+		get_node("/root/World").add_child(bullet)
+		$AudioStreamPlayer.play()
+		shot_timer = 0
 
 	look_at(get_global_mouse_position())
-	flip_v = mouse_pos_left()
+	self.flip_v = mouse_pos_left()
 
 
 func mouse_pos_left() -> bool:
 	return get_global_mouse_position().x < get_parent().position.x
+
+
+func can_fire() -> bool:
+	return Input.is_action_pressed("ui_left_click") && shot_timer >= data.fire_rate

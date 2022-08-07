@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "GunData",
 "language": "GDScript",
 "path": "res://scripts/GunData.gd"
+}, {
+"base": "Node",
+"class": "PlayerStateMachine",
+"language": "GDScript",
+"path": "res://scripts/player/PlayerStateMachine.gd"
 } ]
 _global_script_class_icons={
-"GunData": ""
+"GunData": "",
+"PlayerStateMachine": ""
 }
 
 [application]
@@ -25,11 +31,13 @@ run/main_scene="res://scenes/World.tscn"
 
 [display]
 
-window/size/width=160
-window/size/height=90
+window/size/width=320
+window/size/height=180
 window/size/test_width=2560
 window/size/test_height=1440
 window/dpi/allow_hidpi=true
+window/energy_saving/keep_screen_on=false
+window/ios/hide_home_indicator=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 window/snapping/use_gpu_pixel_snap=true
@@ -41,6 +49,7 @@ window=false
 pixel=false
 snap=false
 cursor=false
+"gpu pixel"=false
 
 [gui]
 
@@ -110,6 +119,13 @@ ui_left_click={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Projectile"
+
 [physics]
 
 common/enable_pause_aware_picking=true
@@ -117,4 +133,5 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 2d/snapping/use_gpu_pixel_snap=true
+batching/precision/uv_contract=true
 environment/default_environment="res://default_env.tres"
