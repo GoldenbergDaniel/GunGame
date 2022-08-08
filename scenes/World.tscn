@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://textures/square.png" type="Texture" id=2]
@@ -8,8 +8,6 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 4 )
-
-[sub_resource type="RectangleShape2D" id=2]
 
 [sub_resource type="Environment" id=3]
 background_mode = 4
@@ -50,7 +48,7 @@ shape = SubResource( 1 )
 
 [node name="Platform1" type="StaticBody2D" parent="Map/FG"]
 modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
-position = Vector2( 90, 115 )
+position = Vector2( 90, 120 )
 scale = Vector2( 10, 1 )
 __meta__ = {
 "_edit_group_": true
@@ -65,7 +63,7 @@ shape = SubResource( 1 )
 
 [node name="Platform2" type="StaticBody2D" parent="Map/FG"]
 modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
-position = Vector2( 230, 115 )
+position = Vector2( 230, 120 )
 scale = Vector2( 10, 1 )
 __meta__ = {
 "_edit_group_": true
@@ -87,16 +85,6 @@ scale = Vector2( 70, 30 )
 z_index = -999
 texture = ExtResource( 2 )
 
-[node name="ResetField" type="Area2D" parent="Map"]
-position = Vector2( 161, 318 )
-scale = Vector2( 40, 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/ResetField"]
-shape = SubResource( 2 )
-
-[node name="SpawnPoint" type="Node2D" parent="Map"]
-position = Vector2( 160, 90 )
-
 [node name="Enemies" type="Node" parent="."]
 
 [node name="ShyGuy" parent="Enemies" instance=ExtResource( 4 )]
@@ -108,4 +96,3 @@ environment = SubResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 160, 90 )
-spawn_point_ref = NodePath("../Map/SpawnPoint")

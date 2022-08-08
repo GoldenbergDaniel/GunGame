@@ -91,6 +91,7 @@ script = ExtResource( 6 )
 total_health = 10
 
 [node name="DebugText" type="RichTextLabel" parent="."]
+visible = false
 margin_left = -10.0
 margin_top = -15.0
 margin_right = 90.0

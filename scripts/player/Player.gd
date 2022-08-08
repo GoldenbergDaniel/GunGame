@@ -13,20 +13,17 @@ var air_resistance: float = 8
 var input: Vector2
 var velocity: Vector2
 
-var spawn_point: Node2D
-export var spawn_point_ref: NodePath
-
 onready var state_map = {
 	BaseState.State.idle: $State/Idle,
 	BaseState.State.move: $State/Move,
 	BaseState.State.jump: $State/Move/Jump
 }
 
-var current_state = BaseState.State.idle
+var current_state: int
 
 
 func _ready():
-	spawn_point = get_node(spawn_point_ref)
+	current_state = BaseState.State.idle
 
 
 func _process(_delta: float) -> void:
@@ -46,11 +43,6 @@ func change_state(new_state: int) -> void:
 	state_map[current_state].exit(self)
 	current_state = new_state
 	state_map[current_state].enter(self)
-
-
-func _on_ResetField_body_shape_entered(_body_id: RID, _body: KinematicBody2D, _body_shape: CollisionShape2D, _local_shape: CollisionShape2D):
-	self.position = spawn_point.position
-	velocity = Vector2.ZERO
 
 
 func mouse_pos_left() -> bool:
