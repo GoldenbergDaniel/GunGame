@@ -9,19 +9,43 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "BaseState",
+"language": "GDScript",
+"path": "res://scripts/BaseState.gd"
+}, {
 "base": "Resource",
 "class": "GunData",
 "language": "GDScript",
 "path": "res://scripts/GunData.gd"
 }, {
-"base": "Node",
-"class": "PlayerStateMachine",
+"base": "KinematicBody2D",
+"class": "Player",
 "language": "GDScript",
-"path": "res://scripts/player/PlayerStateMachine.gd"
+"path": "res://scripts/player/Player.gd"
+}, {
+"base": "BaseState",
+"class": "PlayerIdleState",
+"language": "GDScript",
+"path": "res://scripts/player/PlayerIdleState.gd"
+}, {
+"base": "PlayerMoveState",
+"class": "PlayerJumpState",
+"language": "GDScript",
+"path": "res://scripts/player/PlayerJumpState.gd"
+}, {
+"base": "BaseState",
+"class": "PlayerMoveState",
+"language": "GDScript",
+"path": "res://scripts/player/PlayerMoveState.gd"
 } ]
 _global_script_class_icons={
+"BaseState": "",
 "GunData": "",
-"PlayerStateMachine": ""
+"Player": "",
+"PlayerIdleState": "",
+"PlayerJumpState": "",
+"PlayerMoveState": ""
 }
 
 [application]
