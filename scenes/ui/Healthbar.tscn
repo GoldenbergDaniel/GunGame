@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/ui/Healthbar.gd" type="Script" id=2]
+[ext_resource path="res://textures/ui/healthbar.png" type="Texture" id=3]
+
+[node name="Healthbar" type="Control"]
+margin_left = -4.0
+margin_top = -5.0
+margin_right = 36.0
+margin_bottom = 35.0
+script = ExtResource( 2 )
+max_color = Color( 0.92549, 0.0823529, 0.0823529, 1 )
+min_color = Color( 0.101961, 0.00392157, 0.00392157, 1 )
+difference_color = Color( 1, 0.764706, 0.764706, 1 )
+
+[node name="DifferenceBar" type="TextureProgress" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.0
+margin_top = -14.0
+margin_right = 12.0
+margin_bottom = 2.0
+value = 100.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 3 )
+tint_under = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
+
+[node name="RemainingBar" type="TextureProgress" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.0
+margin_top = -14.0
+margin_right = 12.0
+margin_bottom = 2.0
+value = 100.0
+texture_progress = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="HideTween" type="Tween" parent="."]
+
+[node name="UpdateTween" type="Tween" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -2,7 +2,16 @@ class_name PlayerMoveState
 extends BaseState
 
 
-func physics_process(player: KinematicBody2D, delta: float) -> int:
+func enter(player: KinematicBody2D):
+	player.animation_player.playback_speed = 2
+
+
+func process(player: KinematicBody2D, _delta: float) -> void:
+	if player.current_state != State.jump:
+		player.animation_player.play("move_armed")
+
+
+func physics_process(player: KinematicBody2D, delta: float) -> void:
 	player.input = Vector2.ZERO
 	player.input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 
@@ -20,8 +29,12 @@ func physics_process(player: KinematicBody2D, delta: float) -> int:
 
 	if player.current_state != State.jump:
 		if !Input.is_action_pressed("ui_left") && !Input.is_action_pressed("ui_right"):
-			return State.idle
+			player.change_state(State.idle)
 		if Input.is_action_pressed("ui_up"):
-			return State.jump
+			player.change_state(State.jump)
 
-	return State.none
+
+func exit(player: KinematicBody2D):
+	player.animation_player.stop(true)
+	player.animation_player.playback_speed = 1
+	player.sprite.frame = 0

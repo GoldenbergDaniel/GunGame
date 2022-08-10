@@ -1,8 +1,6 @@
 class_name Player
 extends KinematicBody2D
 
-export var gun_type: String
-
 var gravity: float = 8
 var movement_speed: float = 60
 var jump_force: float = 160
@@ -13,20 +11,33 @@ var air_resistance: float = 8
 var input: Vector2
 var velocity: Vector2
 
+onready var sprite: Sprite = $Pivot/Sprite
+onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+var current_state: int
+
 onready var state_map = {
 	BaseState.State.idle: $State/Idle,
 	BaseState.State.move: $State/Move,
 	BaseState.State.jump: $State/Move/Jump
 }
 
-var current_state: int
 
-
-func _ready():
+func _ready() -> void:
 	current_state = BaseState.State.idle
+	sprite.frame = 0
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	state_map[current_state].process(self, delta)
+
+	if current_state == BaseState.State.idle:
+		$DebugText.text = "idle"
+	elif current_state == BaseState.State.move:
+		$DebugText.text = "move"
+	elif current_state == BaseState.State.jump:
+		$DebugText.text = "jump"
+
 	if mouse_pos_left():
 		get_node("Pivot").scale.x = -1
 	else:
@@ -34,9 +45,7 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var new_state = state_map[current_state].physics_process(self, delta)
-	if new_state != BaseState.State.none:
-		change_state(new_state)
+	state_map[current_state].physics_process(self, delta)
 
 
 func change_state(new_state: int) -> void:

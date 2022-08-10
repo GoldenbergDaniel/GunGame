@@ -1,5 +1,7 @@
 extends Sprite
 
+export var gun_type: String = "assault_rifle"
+
 var data: GunData
 var rng = RandomNumberGenerator.new()
 
@@ -10,7 +12,7 @@ var BULLET: Resource = preload("res://scenes/Bullet.tscn")
 
 
 func _ready():
-	data = load("res://data/gun/" + get_node("/root/World/Player").gun_type + ".tres")
+	data = load("res://data/gun/" + gun_type + ".tres")
 	self.frame = data.frame
 	shot_timer = data.fire_rate
 

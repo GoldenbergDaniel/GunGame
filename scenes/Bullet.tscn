@@ -12,7 +12,7 @@ _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 [node name="Bullet" type="Area2D" groups=["Projectile"]]
 position = Vector2( -0.0078125, 0.0078125 )
 collision_layer = 8
-collision_mask = 7
+collision_mask = 5
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

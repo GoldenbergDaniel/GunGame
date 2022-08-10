@@ -3,14 +3,11 @@ extends KinematicBody2D
 var gravity: float = 8
 var motion: Vector2
 
+onready var healthbar: Control = $Healthbar
+
 
 func _ready() -> void:
 	var _err = $Hurtbox.connect("area_entered", self, "_on_Hurtbox_area_entered")
-
-
-func _process(_delta) -> void:
-	if $Health.is_zero():
-		queue_free()
 
 
 func _physics_process(delta) -> void:
@@ -23,5 +20,11 @@ func _on_Hurtbox_area_entered(area: Area2D) -> void:
 		take_damage(area.damage)
 
 
-func take_damage(var damage: int) -> void:
+func take_damage(damage: int) -> void:
 	$Health.subtract(damage)
+	$AnimationPlayer.play("hurt")
+
+	healthbar.update_fill($Health.current_health, $Health.total_health, damage)
+
+	if $Health.is_zero():
+		queue_free()
