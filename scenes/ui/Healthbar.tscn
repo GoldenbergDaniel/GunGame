@@ -4,10 +4,10 @@
 [ext_resource path="res://textures/ui/healthbar.png" type="Texture" id=3]
 
 [node name="Healthbar" type="Control"]
-margin_left = -4.0
-margin_top = -5.0
-margin_right = 36.0
-margin_bottom = 35.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 20, 20 )
 script = ExtResource( 2 )
 max_color = Color( 0.92549, 0.0823529, 0.0823529, 1 )
 min_color = Color( 0.101961, 0.00392157, 0.00392157, 1 )
@@ -17,8 +17,9 @@ difference_color = Color( 1, 0.764706, 0.764706, 1 )
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -8.0
+margin_top = -2.5
 margin_right = 8.0
-margin_bottom = 16.0
+margin_bottom = 13.5
 value = 100.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 3 )
@@ -28,8 +29,9 @@ tint_under = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -8.0
+margin_top = -2.5
 margin_right = 8.0
-margin_bottom = 16.0
+margin_bottom = 13.5
 value = 100.0
 texture_progress = ExtResource( 3 )
 

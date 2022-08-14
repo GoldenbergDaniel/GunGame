@@ -11,5 +11,5 @@ recoil = 5.0
 spread = 0.6
 fire_rate = 0.4
 sprite_pivot_pos = Vector2( 2, 0 )
-gun_point_pos = Vector2( 1.5, 2 )
+gun_point_pos = Vector2( 1.5, 1 )
 shot_point_pos = Vector2( 6, -1.5 )

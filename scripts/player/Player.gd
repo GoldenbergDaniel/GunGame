@@ -24,7 +24,7 @@ onready var state_map = {
 
 
 func _ready() -> void:
-	current_state = BaseState.State.idle
+	change_state(BaseState.State.idle)
 	sprite.frame = 0
 
 

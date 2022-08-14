@@ -2,6 +2,13 @@ class_name PlayerIdleState
 extends BaseState
 
 
+func enter(player: KinematicBody2D) -> void:
+	.enter(player)
+
+	player.animation_player.playback_speed = 0.2
+	player.animation_player.play("idle_armed")
+
+
 func physics_process(player: KinematicBody2D, delta: float) -> void:
 	player.velocity.y += player.gravity * delta * 60
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)

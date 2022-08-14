@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/scp.png-5a7113c21b30808ec651acca232d17d8.stex"
+path="res://.import/shy_guy.png-54ce97f3e871b019be1e581f7a570df8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/scp.png"
-dest_files=[ "res://.import/scp.png-5a7113c21b30808ec651acca232d17d8.stex" ]
+source_file="res://textures/enemy/shy_guy.png"
+dest_files=[ "res://.import/shy_guy.png-54ce97f3e871b019be1e581f7a570df8.stex" ]
 
 [params]
 

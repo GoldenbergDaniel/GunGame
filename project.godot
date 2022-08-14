@@ -38,6 +38,21 @@ _global_script_classes=[ {
 "class": "PlayerMoveState",
 "language": "GDScript",
 "path": "res://scripts/player/PlayerMoveState.gd"
+}, {
+"base": "Reference",
+"class": "SfxrGenerator",
+"language": "GDScript",
+"path": "res://addons/godot_sfxr/SfxrGenerator.gd"
+}, {
+"base": "Object",
+"class": "SfxrGlobals",
+"language": "GDScript",
+"path": "res://addons/godot_sfxr/SfxrGlobals.gd"
+}, {
+"base": "Object",
+"class": "SfxrStreamPlayerInterface",
+"language": "GDScript",
+"path": "res://addons/godot_sfxr/SfxrStreamPlayerInterface.gd"
 } ]
 _global_script_class_icons={
 "BaseState": "",
@@ -45,13 +60,21 @@ _global_script_class_icons={
 "Player": "",
 "PlayerIdleState": "",
 "PlayerJumpState": "",
-"PlayerMoveState": ""
+"PlayerMoveState": "",
+"SfxrGenerator": "",
+"SfxrGlobals": "",
+"SfxrStreamPlayerInterface": ""
 }
 
 [application]
 
 config/name="GunGame"
 run/main_scene="res://scenes/World.tscn"
+config/icon="res://icon.png"
+
+[debug]
+
+settings/fps/force_fps=60
 
 [display]
 
@@ -60,11 +83,16 @@ window/size/height=180
 window/size/test_width=2560
 window/size/test_height=1440
 window/dpi/allow_hidpi=true
+window/vsync/use_vsync=false
 window/energy_saving/keep_screen_on=false
 window/ios/hide_home_indicator=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
-window/snapping/use_gpu_pixel_snap=true
+window/snapping/use_gpu_pixel_snap=false
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/godot_sfxr/plugin.cfg" )
 
 [global]
 
@@ -156,6 +184,14 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-2d/snapping/use_gpu_pixel_snap=true
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=0
+vram_compression/import_bptc=true
+quality/filters/anisotropic_filter_level=2
+quality/filters/use_nearest_mipmap_filter=true
 batching/precision/uv_contract=true
 environment/default_environment="res://default_env.tres"
+
+[world]
+
+2d/cell_size=16

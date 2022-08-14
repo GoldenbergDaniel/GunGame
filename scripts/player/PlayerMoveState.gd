@@ -3,12 +3,14 @@ extends BaseState
 
 
 func enter(player: KinematicBody2D):
-	player.animation_player.playback_speed = 2
+	player.animation_player.playback_speed = 1.5
 
 
 func process(player: KinematicBody2D, _delta: float) -> void:
 	if player.current_state != State.jump:
 		player.animation_player.play("move_armed")
+		if player.input.x == 0:
+			player.animation_player.stop()
 
 
 func physics_process(player: KinematicBody2D, delta: float) -> void:
