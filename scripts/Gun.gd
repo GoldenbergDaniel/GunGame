@@ -43,6 +43,7 @@ func _process(delta):
 		bullet.damage = data.damage
 		get_node("/root/World").add_child(bullet)
 		$AudioStreamPlayer.play()
+		$AnimationPlayer.play("shoot")
 		shot_timer = 0
 
 	look_at(get_global_mouse_position())

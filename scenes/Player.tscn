@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://textures/player/player_anim.png" type="Texture" id=1]
 [ext_resource path="res://scripts/player/Player.gd" type="Script" id=2]
@@ -16,6 +16,37 @@ light_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id=9]
 light_mode = 1
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.8 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "shoot"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.5 ), Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2.5, 6.5 )
@@ -172,6 +203,7 @@ vframes = 3
 [node name="Gun" type="Sprite" parent="Pivot"]
 material = SubResource( 9 )
 position = Vector2( 1.5, 1 )
+scale = Vector2( 1, 0.8 )
 z_index = 999
 texture = ExtResource( 4 )
 offset = Vector2( 2, 0 )
@@ -188,6 +220,10 @@ __meta__ = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Pivot/Gun"]
 stream = ExtResource( 5 )
 pitch_scale = 1.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/Gun"]
+anims/RESET = SubResource( 10 )
+anims/shoot = SubResource( 11 )
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 visible = false
