@@ -12,7 +12,7 @@ background_mode = 4
 tonemap_mode = 3
 glow_enabled = true
 glow_intensity = 0.3
-glow_bloom = 0.3
+glow_bloom = 0.2
 glow_blend_mode = 0
 glow_hdr_luminance_cap = 1.0
 glow_bicubic_upscale = true
@@ -197,13 +197,14 @@ light_mode = 1
 
 [node name="World" type="Node2D"]
 
-[node name="DebugOverlay" type="CanvasLayer" parent="."]
+[node name="Debug" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource( 4 )
 
-[node name="FPS" type="RichTextLabel" parent="DebugOverlay"]
+[node name="FPS" type="RichTextLabel" parent="Debug"]
 margin_left = 6.0
 margin_top = 8.0
-margin_right = 86.0
+margin_right = 178.0
 margin_bottom = 88.0
 rect_scale = Vector2( 0.25, 0.25 )
 meta_underlined = false
@@ -212,7 +213,7 @@ text = "FPS: 60"
 [node name="Post Processing" type="Node" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Post Processing"]
-color = Color( 0.356863, 0.290196, 0.290196, 1 )
+color = Color( 0.533333, 0.447059, 0.447059, 1 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Post Processing"]
 environment = SubResource( 3 )

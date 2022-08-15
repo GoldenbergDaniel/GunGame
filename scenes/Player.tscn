@@ -178,7 +178,6 @@ offset = Vector2( 2, 0 )
 hframes = 2
 vframes = 3
 script = ExtResource( 3 )
-gun_type = "pistol"
 
 [node name="ShotPoint" type="Position2D" parent="Pivot/Gun"]
 position = Vector2( 6, -1.5 )
@@ -191,6 +190,7 @@ stream = ExtResource( 5 )
 pitch_scale = 1.5
 
 [node name="Collider" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -0.5, 1.5 )
 shape = SubResource( 1 )
 

@@ -11,7 +11,7 @@ rect_pivot_offset = Vector2( 20, 20 )
 script = ExtResource( 2 )
 max_color = Color( 0.92549, 0.0823529, 0.0823529, 1 )
 min_color = Color( 0.101961, 0.00392157, 0.00392157, 1 )
-difference_color = Color( 1, 0.764706, 0.764706, 1 )
+difference_color = Color( 1, 0.898039, 0.898039, 1 )
 
 [node name="DifferenceBar" type="TextureProgress" parent="."]
 anchor_left = 0.5

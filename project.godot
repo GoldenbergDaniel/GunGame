@@ -80,15 +80,15 @@ settings/fps/force_fps=60
 
 window/size/width=320
 window/size/height=180
-window/size/test_width=2560
-window/size/test_height=1440
+window/size/test_width=1280
+window/size/test_height=720
 window/dpi/allow_hidpi=true
 window/vsync/use_vsync=false
 window/energy_saving/keep_screen_on=false
 window/ios/hide_home_indicator=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
-window/snapping/use_gpu_pixel_snap=false
+window/snapping/use_gpu_pixel_snap=true
 
 [editor_plugins]
 
@@ -101,7 +101,7 @@ window=false
 pixel=false
 snap=false
 cursor=false
-"gpu pixel"=false
+"gpu pixel"=true
 
 [gui]
 
@@ -186,6 +186,7 @@ common/enable_pause_aware_picking=true
 
 quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
+2d/snapping/use_gpu_pixel_snap=true
 vram_compression/import_bptc=true
 quality/filters/anisotropic_filter_level=2
 quality/filters/use_nearest_mipmap_filter=true
