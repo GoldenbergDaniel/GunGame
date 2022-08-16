@@ -101,7 +101,7 @@ window=false
 pixel=false
 snap=false
 cursor=false
-"gpu pixel"=true
+"gpu pixel"=false
 
 [gui]
 

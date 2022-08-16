@@ -9,6 +9,7 @@ var shot_timer: float
 var has_shot: bool
 
 var BULLET: Resource = preload("res://scenes/Bullet.tscn")
+var EFFECT: Resource = preload("res://scenes/effects/SmokeParticles.tscn")
 
 
 func _ready():
@@ -35,24 +36,34 @@ func _process(delta):
 		self.position.x = data.gun_point_pos.x
 		$ShotPoint.position.y = data.shot_point_pos.y
 
-	if can_fire():
-		var bullet = BULLET.instance()
-		bullet.position = $ShotPoint.global_position
-		bullet.rotation = $ShotPoint.global_rotation + (rng.randfn() * data.spread) * (PI/180)
-		bullet.speed = data.speed
-		bullet.damage = data.damage
-		get_node("/root/World").add_child(bullet)
-		$AudioStreamPlayer.play()
-		$AnimationPlayer.play("shoot")
-		shot_timer = 0
+	if can_shoot():
+		shoot()
 
 	look_at(get_global_mouse_position())
 	self.flip_v = mouse_pos_left()
+
+
+func shoot() -> void:
+	var bullet = BULLET.instance()
+	bullet.position = $ShotPoint.global_position
+	bullet.rotation = $ShotPoint.global_rotation + (rng.randfn() * data.spread) * (PI/180)
+	bullet.speed = data.speed
+	bullet.damage = data.damage
+	get_node("/root/World").add_child(bullet)
+
+	var effect = EFFECT.instance()
+	effect.position = $ShotPoint.global_position
+	get_node("/root/World").add_child(effect)
+
+	$AudioStreamPlayer.play()
+	$AnimationPlayer.play("shoot")
+
+	shot_timer = 0
 
 
 func mouse_pos_left() -> bool:
 	return get_global_mouse_position().x < get_parent().position.x
 
 
-func can_fire() -> bool:
+func can_shoot() -> bool:
 	return Input.is_action_pressed("ui_left_click") && shot_timer >= data.fire_rate

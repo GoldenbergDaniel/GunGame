@@ -1,15 +1,11 @@
 extends CPUParticles2D
 
-var timer: Timer
+onready var timer: Timer = $Timer
 
 
-func _ready():
+func _ready() -> void:
 	self.emitting = true
-	timer = $Timer
-	timer.start()
-	
 
-func _process(_delta):
-	if timer.is_stopped():
-		print("Stop")
-		queue_free()
+
+func _on_Timer_timeout() -> void:
+	queue_free()

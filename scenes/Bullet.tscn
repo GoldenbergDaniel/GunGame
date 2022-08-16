@@ -22,15 +22,15 @@ position = Vector2( 0, 0.5 )
 texture = ExtResource( 1 )
 hframes = 2
 vframes = 2
-frame = 2
 
 [node name="Collider" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
 
 [node name="Trail" type="Line2D" parent="."]
-modulate = Color( 1.5, 1.5, 1.5, 1 )
-position = Vector2( -1.99219, -0.0078125 )
-points = PoolVector2Array( -2, 0, 1, 0 )
+modulate = Color( 0.729412, 0.682353, 0.372549, 1 )
+position = Vector2( -2, 0 )
+points = PoolVector2Array( -3, 0, 1, 0 )
 width = 1.0
 width_curve = SubResource( 2 )
 default_color = Color( 1.5, 1.5, 1.5, 1 )
