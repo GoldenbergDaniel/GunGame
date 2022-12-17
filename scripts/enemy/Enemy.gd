@@ -1,7 +1,14 @@
+class_name Enemy
 extends KinematicBody2D
 
 var gravity: float = 8
-var motion: Vector2
+var movement_speed: float = 60
+var jump_force: float = 160
+var acceleration: float = 60
+var friction: float = 24
+var air_resistance: float = 8
+
+var velocity: Vector2
 
 onready var healthbar: Control = $Healthbar
 
@@ -11,8 +18,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta) -> void:
-	motion.y += gravity * delta * 60
-	motion = move_and_slide(motion, Vector2.UP)
+	velocity.y += gravity * delta * 60
+	velocity = move_and_slide(velocity, Vector2.UP)
 
 
 func _on_Hurtbox_area_entered(area: Area2D) -> void:

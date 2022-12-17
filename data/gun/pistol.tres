@@ -6,10 +6,10 @@
 script = ExtResource( 1 )
 frame = 0
 damage = 3
-speed = 150
+speed = 300
 recoil = 5.0
 spread = 0.6
-fire_rate = 0.4
+fire_rate = 0.3
 sprite_pivot_pos = Vector2( 2, 0 )
 gun_point_pos = Vector2( 1.5, 1 )
 shot_point_pos = Vector2( 6, -1.5 )

@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/Particles.gd" type="Script" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=5]
+light_mode = 1
 
 [sub_resource type="Curve" id=4]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [node name="BulletParticles" type="CPUParticles2D"]
+material = SubResource( 5 )
 position = Vector2( 141, 86 )
 emitting = false
 amount = 7

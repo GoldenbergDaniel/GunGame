@@ -14,6 +14,26 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/BaseState.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://scripts/enemy/Enemy.gd"
+}, {
+"base": "BaseState",
+"class": "EnemyIdleState",
+"language": "GDScript",
+"path": "res://scripts/enemy/EnemyIdleState.gd"
+}, {
+"base": "EnemyMoveState",
+"class": "EnemyJumpState",
+"language": "GDScript",
+"path": "res://scripts/enemy/EnemyJumpState.gd"
+}, {
+"base": "BaseState",
+"class": "EnemyMoveState",
+"language": "GDScript",
+"path": "res://scripts/enemy/EnemyMoveState.gd"
+}, {
 "base": "Resource",
 "class": "GunData",
 "language": "GDScript",
@@ -56,6 +76,10 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "BaseState": "",
+"Enemy": "",
+"EnemyIdleState": "",
+"EnemyJumpState": "",
+"EnemyMoveState": "",
 "GunData": "",
 "Player": "",
 "PlayerIdleState": "",
@@ -148,7 +172,7 @@ ui_right={
 }
 ui_up={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]

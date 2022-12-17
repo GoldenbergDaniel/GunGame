@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 frame = 3
 damage = 9
-speed = 250
+speed = 500
 recoil = 30.0
 spread = 0.1
 fire_rate = 1.65

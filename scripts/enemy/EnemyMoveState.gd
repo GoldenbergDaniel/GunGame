@@ -1,4 +1,4 @@
-class_name PlayerMoveState
+class_name EnemyMoveState
 extends BaseState
 
 
@@ -29,11 +29,11 @@ func physics_process(base: KinematicBody2D, delta: float) -> void:
 	base.velocity.y += base.gravity * delta * 60
 	base.velocity = base.move_and_slide(base.velocity, Vector2.UP)
 
-	if base.current_state != State.jump:
-		if !Input.is_action_pressed("ui_left") && !Input.is_action_pressed("ui_right"):
-			base.change_state(State.idle)
-		if Input.is_action_pressed("ui_up"):
-			base.change_state(State.jump)
+	# if base.current_state != State.jump:
+	# 	if stopped:
+	# 		base.change_state(State.idle)
+	# 	if jumping:
+	# 		base.change_state(State.jump)
 
 
 func exit(base: KinematicBody2D):

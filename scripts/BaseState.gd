@@ -7,17 +7,17 @@ enum State {
 	jump
 }
 
-func enter(_player: KinematicBody2D) -> void:
+func enter(_base: KinematicBody2D) -> void:
     pass
 
 
-func process(_player: KinematicBody2D, _delta: float) -> void:
+func process(_base: KinematicBody2D, _delta: float) -> void:
     pass
 
 
-func physics_process(_player: KinematicBody2D, _delta: float) -> void:
+func physics_process(_base: KinematicBody2D, _delta: float) -> void:
     pass
 
 
-func exit(_player: KinematicBody2D) -> void:
+func exit(_base: KinematicBody2D) -> void:
     pass

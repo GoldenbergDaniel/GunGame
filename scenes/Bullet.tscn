@@ -28,9 +28,9 @@ visible = false
 shape = SubResource( 1 )
 
 [node name="Trail" type="Line2D" parent="."]
-modulate = Color( 0.729412, 0.682353, 0.372549, 1 )
+modulate = Color( 0.941176, 0.85098, 0.262745, 1 )
 position = Vector2( -2, 0 )
-points = PoolVector2Array( -3, 0, 1, 0 )
+points = PoolVector2Array( -5.99219, -0.0078125, 1, 0 )
 width = 1.0
 width_curve = SubResource( 2 )
 default_color = Color( 1.5, 1.5, 1.5, 1 )
@@ -41,6 +41,7 @@ one_shot = true
 autostart = true
 
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
 texture = ExtResource( 3 )
 texture_scale = 0.2
 energy = 0.3

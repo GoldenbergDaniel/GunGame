@@ -1,5 +1,5 @@
-class_name PlayerJumpState
-extends PlayerMoveState
+class_name EnemyJumpState
+extends EnemyMoveState
 
 
 func enter(base: KinematicBody2D) -> void:

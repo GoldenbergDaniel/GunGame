@@ -1,4 +1,4 @@
-class_name PlayerIdleState
+class_name EnemyIdleState
 extends BaseState
 
 
@@ -18,8 +18,8 @@ func physics_process(base: KinematicBody2D, delta: float) -> void:
 	else:
 		base.velocity.x = lerp(base.velocity.x, 0, base.air_resistance * delta)
 
-	if Input.is_action_pressed("ui_up"):
-		base.change_state(State.jump)
+	# if jump:
+	# 	base.change_state(State.jump)
 
-	if Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_right"):
-		base.change_state(State.move)
+	# if move:
+	# 	base.change_state(State.move)

@@ -4,13 +4,14 @@
 [ext_resource path="res://textures/ui/healthbar.png" type="Texture" id=3]
 
 [node name="Healthbar" type="Control"]
+modulate = Color( 1, 1, 1, 0.588235 )
 margin_right = 40.0
 margin_bottom = 40.0
-rect_scale = Vector2( 0.8, 0.8 )
+rect_scale = Vector2( 0.801421, 0.801624 )
 rect_pivot_offset = Vector2( 20, 20 )
 script = ExtResource( 2 )
-max_color = Color( 0.92549, 0.0823529, 0.0823529, 1 )
-min_color = Color( 0.101961, 0.00392157, 0.00392157, 1 )
+max_color = Color( 1, 0, 0, 1 )
+min_color = Color( 0.0784314, 0, 0, 1 )
 difference_color = Color( 1, 0.898039, 0.898039, 1 )
 
 [node name="DifferenceBar" type="TextureProgress" parent="."]
