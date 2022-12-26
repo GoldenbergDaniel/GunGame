@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource( 1 )
-damage = 3
-speed = 300
-recoil = 5.0
-spread = 0.6
-fire_rate = 0.3
-fire_type = "semi"
-mag_size = 9
+damage = 1
+speed = 275
+recoil = 10.0
+spread = 2.0
+fire_rate = 0.125
+fire_type = "auto"
+mag_size = 30

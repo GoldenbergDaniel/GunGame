@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://scripts/GunData.gd" type="Script" id=1]
+[ext_resource path="res://scripts/gun/GunData.gd" type="Script" id=1]
 
 [resource]
 script = ExtResource( 1 )
@@ -10,6 +10,7 @@ speed = 200
 recoil = 25.0
 spread = 2
 fire_rate = 1.5
+fire_type = "semi"
 sprite_pivot_pos = Vector2( 0, 0 )
 gun_point_pos = Vector2( 0, 0 )
 shot_point_pos = Vector2( 6.5, 0.5 )

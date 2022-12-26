@@ -16,6 +16,12 @@ func _ready() -> void:
 	difference_bar.modulate.a = 0
 
 
+func _on_Timer_timeout() -> void:
+	$HideTween.interpolate_property(remaining_bar, "modulate:a", 1, 0, 1)
+	$HideTween.interpolate_property(difference_bar, "modulate:a", 1, 0, 1)
+	$HideTween.start()
+
+
 func update_fill(current_health: int, total_health: int, damage: int) -> void:
 	$HideTween.stop_all()
 	$UpdateTween.stop_all()
@@ -37,8 +43,3 @@ func update_fill(current_health: int, total_health: int, damage: int) -> void:
 	var b = lerp(remaining_bar.tint_progress.b, min_color.b, ratio)
 	remaining_bar.tint_progress = Color(r, g, b)
 
-
-func _on_Timer_timeout() -> void:
-	$HideTween.interpolate_property(remaining_bar, "modulate:a", 1, 0, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	$HideTween.interpolate_property(difference_bar, "modulate:a", 1, 0, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	$HideTween.start()

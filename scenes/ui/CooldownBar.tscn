@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/ui/CooldownBar.gd" type="Script" id=1]
+[ext_resource path="res://textures/ui/healthbar.png" type="Texture" id=2]
+
+[node name="CooldownBar" type="Control"]
+modulate = Color( 1, 1, 1, 0.784314 )
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 20, 20 )
+script = ExtResource( 1 )
+
+[node name="Bar" type="TextureProgress" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -6.0
+margin_top = 3.0
+margin_right = 10.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.65, 0.65 )
+value = 100.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 2 )
+tint_under = Color( 0.541176, 0.541176, 0.541176, 0.588235 )
+tint_progress = Color( 1, 1, 1, 0.588235 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="HideTween" type="Tween" parent="."]
+
+[node name="UpdateTween" type="Tween" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

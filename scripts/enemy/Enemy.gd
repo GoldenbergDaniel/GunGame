@@ -10,7 +10,7 @@ var air_resistance: float = 8
 
 var velocity: Vector2
 
-onready var healthbar: Control = $Healthbar
+onready var healthbar: Control = $HealthBar
 
 
 func _ready() -> void:

@@ -1,0 +1,4 @@
+Combat Ideas
+- Locational damage and dismemberment
+- Enemies lock on to player
+- Recoil

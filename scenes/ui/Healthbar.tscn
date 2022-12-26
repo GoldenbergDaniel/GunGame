@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scripts/ui/Healthbar.gd" type="Script" id=2]
+[ext_resource path="res://scripts/ui/HealthBar.gd" type="Script" id=2]
 [ext_resource path="res://textures/ui/healthbar.png" type="Texture" id=3]
 
-[node name="Healthbar" type="Control"]
+[node name="HealthBar" type="Control"]
 modulate = Color( 1, 1, 1, 0.588235 )
 margin_right = 40.0
 margin_bottom = 40.0
@@ -11,28 +11,27 @@ rect_scale = Vector2( 0.801421, 0.801624 )
 rect_pivot_offset = Vector2( 20, 20 )
 script = ExtResource( 2 )
 max_color = Color( 1, 0, 0, 1 )
-min_color = Color( 0.0784314, 0, 0, 1 )
-difference_color = Color( 1, 0.898039, 0.898039, 1 )
+difference_color = Color( 1, 0.470588, 0.470588, 1 )
 
 [node name="DifferenceBar" type="TextureProgress" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -8.0
-margin_top = -2.5
+margin_top = -1.5
 margin_right = 8.0
-margin_bottom = 13.5
+margin_bottom = 14.5
 value = 100.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 3 )
-tint_under = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
+tint_progress = Color( 0.937255, 0.698039, 0.698039, 1 )
 
 [node name="RemainingBar" type="TextureProgress" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -8.0
-margin_top = -2.5
+margin_top = -1.5
 margin_right = 8.0
-margin_bottom = 13.5
+margin_bottom = 14.5
 value = 100.0
 texture_progress = ExtResource( 3 )
 

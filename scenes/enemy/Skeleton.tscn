@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://textures/enemy/skeleton.png" type="Texture" id=1]
+[ext_resource path="res://textures/enemy1.png" type="Texture" id=1]
 [ext_resource path="res://scripts/enemy/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://scripts/enemy/EnemyJumpState.gd" type="Script" id=3]
-[ext_resource path="res://scenes/ui/Healthbar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ui/HealthBar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/components/Health.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/enemy/EnemyIdleState.gd" type="Script" id=6]
 [ext_resource path="res://scripts/enemy/EnemyMoveState.gd" type="Script" id=7]
@@ -43,7 +43,8 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=9]
 resource_name = "hurt"
-length = 0.1
+length = 0.12
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pivot/Sprite:frame")
 tracks/0/interp = 1
@@ -51,7 +52,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 0.12 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 1, 0 ]
@@ -63,10 +64,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1.15, 0.85 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.8, 1.2 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -86,13 +87,10 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[node name="Skeleton" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D"]
 position = Vector2( 90, 80 )
 collision_layer = 4
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Pivot" type="Position2D" parent="."]
 position = Vector2( -0.5, 0 )
@@ -103,7 +101,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Pivot"]
 position = Vector2( 0.5, 0 )
 texture = ExtResource( 1 )
-vframes = 2
+hframes = 2
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 visible = false
@@ -132,15 +130,15 @@ script = ExtResource( 7 )
 script = ExtResource( 3 )
 
 [node name="Health" parent="." instance=ExtResource( 5 )]
-total_health = 20
+total_health = 50
 
-[node name="Healthbar" parent="." instance=ExtResource( 4 )]
+[node name="HealthBar" parent="." instance=ExtResource( 4 )]
 margin_left = -20.0
 margin_top = -20.0
 margin_right = 20.0
 margin_bottom = 20.0
 rect_scale = Vector2( 0.7, 0.7 )
-min_color = Color( 0.0784314, 0, 0, 1 )
+difference_color = Color( 1, 0.709804, 0.709804, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false

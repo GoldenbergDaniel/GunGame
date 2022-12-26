@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://textures/enemy/shy_guy.png" type="Texture" id=1]
-[ext_resource path="res://scenes/ui/Healthbar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/ui/HealthBar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/components/Health.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/ui/HealthBar.gd" type="Script" id=4]
+[ext_resource path="res://scripts/enemy/Enemy.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 2.5, 8 )
@@ -84,6 +86,7 @@ tracks/0/keys = {
 
 [node name="ShyGuy" type="KinematicBody2D"]
 collision_layer = 4
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -117,14 +120,15 @@ shape = SubResource( 4 )
 [node name="Health" parent="." instance=ExtResource( 3 )]
 total_health = 50
 
-[node name="Healthbar" parent="." instance=ExtResource( 2 )]
+[node name="HealthBar" parent="." instance=ExtResource( 2 )]
 margin_left = -20.0
 margin_top = -20.0
 margin_right = 20.0
 margin_bottom = 20.0
 rect_scale = Vector2( 0.7, 0.7 )
-max_color = Color( 1, 0, 0, 1 )
-min_color = Color( 0, 0, 0, 1 )
+script = ExtResource( 4 )
+min_color = Color( 0.968627, 0.901961, 0.901961, 1 )
+difference_color = Color( 0, 0, 0, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
